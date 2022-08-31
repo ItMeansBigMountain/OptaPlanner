@@ -40,10 +40,10 @@
     <dependencies>
 
 
-        <!--        <dependency>-->
-        <!--            <groupId>org.optaplanner</groupId>-->
-        <!--            <artifactId>optaplanner-quarkus</artifactId>-->
-        <!--        </dependency>-->
+        <dependency>
+            <groupId>org.optaplanner</groupId>
+            <artifactId>optaplanner-quarkus</artifactId>
+        </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-hibernate-orm-panache</artifactId>
@@ -56,10 +56,10 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy-jackson</artifactId>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>org.optaplanner</groupId>-->
-        <!--            <artifactId>optaplanner-quarkus-jackson</artifactId>-->
-        <!--        </dependency>-->
+        <dependency>
+            <groupId>org.optaplanner</groupId>
+            <artifactId>optaplanner-quarkus-jackson</artifactId>
+        </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-arc</artifactId>

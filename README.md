@@ -1,12 +1,17 @@
 # time-tabling Project
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+## INIT
+```shell script
+mvn clean install   
+```
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+> **_NOTE:_**  mvn clean install tells Maven to do the clean phase in each module before running the install phase for
+> each module. What this does is clear any compiled files you have, making sure that you're really compiling each module
+> from scratch
 
 ## Running the application in dev mode
-
 You can run your application in dev mode that enables live coding using:
+
 ```shell script
 mvn compile quarkus:dev   
 ```

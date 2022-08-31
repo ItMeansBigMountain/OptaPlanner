@@ -1,8 +1,5 @@
 package org.com.TimePlanner.rest;
 
-
-
-
 import org.com.TimePlanner.Entities.TimeSlot;
 
 import javax.transaction.Transactional;
