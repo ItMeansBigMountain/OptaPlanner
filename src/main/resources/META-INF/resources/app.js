@@ -27,8 +27,8 @@ function refreshTimeTable() {
         .append($("<th/>")
           .append($("<span/>").text(room.name))
           .append($(`<button type="button" class="ml-2 mb-1 btn btn-light btn-sm p-1"/>`)
-            .append($(`<small class="fas fa-trash"/>`)
-            ).click(() => deleteRoom(room))));
+            .append($(`<small class="fas fa-trash"/>`))
+            .click(() => deleteRoom(room))));
     });
 
 

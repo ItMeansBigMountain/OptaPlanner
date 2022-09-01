@@ -1,10 +1,13 @@
 package org.com.TimePlanner.Entities;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import org.optaplanner.core.api.domain.entity.PlanningEntity;
+import org.optaplanner.core.api.domain.variable.PlanningVariable;
 
 import javax.persistence.*;
 
 
+@PlanningEntity
 @Entity
 public class Lesson extends PanacheEntityBase {
 
@@ -17,8 +20,10 @@ public class Lesson extends PanacheEntityBase {
     private String StudentGroup;
 
     //    INIT & CHANGES DURING PLANNING
+    @PlanningVariable(valueRangeProviderRefs = "timeslotRange")
     @ManyToOne
     private TimeSlot timeSlot;
+    @PlanningVariable(valueRangeProviderRefs = "roomRange")
     @ManyToOne
     private Room room;
 

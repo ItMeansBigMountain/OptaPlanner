@@ -1,15 +1,34 @@
 package org.com.TimePlanner.Entities;
+import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty;
+import org.optaplanner.core.api.domain.solution.PlanningScore;
+import org.optaplanner.core.api.domain.solution.PlanningSolution;
+import org.optaplanner.core.api.domain.solution.ProblemFactCollectionProperty;
+import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider;
+import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 
 import java.util.List;
 
+
+
+
+@PlanningSolution
 public class TimeTable {
 
+    @ProblemFactCollectionProperty
+    @ValueRangeProvider(id="timeslotRange")
     private List<TimeSlot> timeSlotList;
+
+    @ProblemFactCollectionProperty
+    @ValueRangeProvider(id="roomRange")
     private List<Room> roomList;
+
+    @PlanningEntityCollectionProperty
     private List<Lesson> lessonList;
 
-    public TimeTable() {
+    @PlanningScore
+    private HardSoftScore score;
 
+    public TimeTable() {
     }
 
 
