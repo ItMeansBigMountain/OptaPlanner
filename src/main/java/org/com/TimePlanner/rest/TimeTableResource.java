@@ -19,7 +19,7 @@ import java.util.Collections;
 @Consumes(MediaType.APPLICATION_JSON)
 public class TimeTableResource {
 
-    private static final long SINGLETON_TIME_TABLE_ID = 1;
+    private static final long SINGLETON_TIME_TABLE_ID = 1L;
 
     @Inject
     SolverManager<TimeTable, Long> solverManager;

@@ -62,6 +62,9 @@ function refreshTimeTable() {
     const tbodyByRoom = $("<tbody>").appendTo(timeTableByRoom);
     const tbodyByTeacher = $("<tbody>").appendTo(timeTableByTeacher);
     const tbodyByStudentGroup = $("<tbody>").appendTo(timeTableByStudentGroup);
+
+
+    // DISPLAY TABLE X AXIS - TIMESLOT
     $.each(timeTable.timeSlotList, (index, timeslot) => {
       const rowByRoom = $("<tr>").appendTo(tbodyByRoom);
       rowByRoom
@@ -79,6 +82,9 @@ function refreshTimeTable() {
         rowByRoom.append($("<td/>").prop("id", `timeslot${timeslot.id}room${room.id}`));
       });
 
+
+
+      // DISPLAY TABLE  X AXIS - TEACHER
       const rowByTeacher = $("<tr>").appendTo(tbodyByTeacher);
       rowByTeacher
         .append($(`<th class="align-middle"/>`)
@@ -92,6 +98,10 @@ function refreshTimeTable() {
         rowByTeacher.append($("<td/>").prop("id", `timeslot${timeslot.id}teacher${convertToId(teacher)}`));
       });
 
+
+
+
+      // DISPLAY TABLE  X AXIS - STUDENT
       const rowByStudentGroup = $("<tr>").appendTo(tbodyByStudentGroup);
       rowByStudentGroup
         .append($(`<th class="align-middle"/>`)
@@ -121,12 +131,14 @@ function refreshTimeTable() {
           .append($(`<small class="fas fa-trash"/>`)
           ).click(() => deleteLesson(lesson))
       );
-      if (lesson.timeslot == null || lesson.room == null) {
+
+      // UNASSIGNED VS SOLVED CLASSES DISPLAY
+      if (lesson.timeSlot == null || lesson.room == null) {
         unassignedLessons.append(lessonElement);
       } else {
-        $(`#timeslot${lesson.timeslot.id}room${lesson.room.id}`).append(lessonElement);
-        $(`#timeslot${lesson.timeslot.id}teacher${convertToId(lesson.teacher)}`).append(lessonElementWithoutDelete.clone());
-        $(`#timeslot${lesson.timeslot.id}studentGroup${convertToId(lesson.studentGroup)}`).append(lessonElementWithoutDelete.clone());
+        $(`#timeslot${lesson.timeSlot.id}room${lesson.room.id}`).append(lessonElement);
+        $(`#timeslot${lesson.timeSlot.id}teacher${convertToId(lesson.teacher)}`).append(lessonElementWithoutDelete.clone());
+        $(`#timeslot${lesson.timeSlot.id}studentGroup${convertToId(lesson.studentGroup)}`).append(lessonElementWithoutDelete.clone());
       }
     });
   });
