@@ -4,7 +4,10 @@ import org.com.TimePlanner.Entities.Lesson;
 import org.com.TimePlanner.Entities.Room;
 import org.com.TimePlanner.Entities.TimeSlot;
 import org.com.TimePlanner.Entities.TimeTable;
+import org.optaplanner.core.api.score.ScoreManager;
+import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.core.api.solver.SolverManager;
+import org.optaplanner.core.api.solver.SolverStatus;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
@@ -24,10 +27,18 @@ public class TimeTableResource {
     @Inject
     SolverManager<TimeTable, Long> solverManager;
 
+    @Inject
+    ScoreManager<TimeTable, HardSoftScore> scoreManager;
+
+
 
     @GET
     public TimeTable getTimeTable() {
-        return findById(SINGLETON_TIME_TABLE_ID);
+        SolverStatus solverStatus = solverManager.getSolverStatus(SINGLETON_TIME_TABLE_ID);
+        TimeTable timeTable = findById(SINGLETON_TIME_TABLE_ID);
+        scoreManager.updateScore(timeTable);
+        timeTable.setSolverStatus(solverStatus);
+        return timeTable;
     }
 
 
@@ -57,6 +68,7 @@ public class TimeTableResource {
 
             System.out.println(attachedLesson);
         }
+            System.out.println("-------------------");
     }
 
 }
