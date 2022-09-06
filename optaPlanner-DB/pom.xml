@@ -49,7 +49,7 @@
         </dependency>
 
 
-        <!--        OPTA PLANNER-->
+        <!-- OPTA PLANNER-->
         <dependency>
             <groupId>org.optaplanner</groupId>
             <artifactId>optaplanner-spring-boot-starter</artifactId>
