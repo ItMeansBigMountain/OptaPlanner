@@ -205,34 +205,6 @@ function App() {
         </div>
       </div>
 
-
-
-
-
-
-
-      {/* <!-- IMPORTED SCRIPTS --> */}
-      {/* <!-- <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>  --> */}
-
-      {/* <!-- moment.js --> */}
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-
-      {/* <!-- fontawesome --> */}
-      <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
-        integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
-        crossOrigin="anonymous"></script>
-
-      {/* <!-- jquery --> */}
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-      {/* <!-- bootstrap --> */}
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-        crossOrigin="anonymous"></script>
-
-      <script src="./functionality.js"></script>
-
-
     </>
   );
 }
