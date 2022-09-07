@@ -6,8 +6,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class OptaPlannerDbApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(OptaPlannerDbApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(OptaPlannerDbApplication.class, args);
+    }
 
 }
+
+
+
+
+
+
+
