@@ -37,7 +37,7 @@ public class Lesson_impl implements LessonService {
     }
 
     @Override
-    public List<Lesson> deleteLesson(int id) {
+    public Lesson deleteLesson(Long id) {
         return null;
     }
 }

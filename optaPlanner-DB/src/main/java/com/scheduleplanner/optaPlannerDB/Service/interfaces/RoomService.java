@@ -13,5 +13,5 @@ public interface RoomService {
 
     List<Room> updateRoom(Room r);
 
-    List<Room> deleteRoom(int id);
+    Room deleteRoom(Long id);
 }

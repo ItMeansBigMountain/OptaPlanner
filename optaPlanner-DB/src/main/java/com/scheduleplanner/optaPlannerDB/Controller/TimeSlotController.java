@@ -1,7 +1,30 @@
 package com.scheduleplanner.optaPlannerDB.Controller;
 
-import org.springframework.web.bind.annotation.RestController;
+import com.scheduleplanner.optaPlannerDB.Entity.TimeSlot;
+import com.scheduleplanner.optaPlannerDB.Service.interfaces.TimeSlotService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.sql.Time;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class TimeSlotController {
+
+    @Autowired
+    private TimeSlotService timeSlotService;
+
+
+    @PostMapping("/timeslots")
+    public TimeSlot addTimeSlot_endpoint( TimeSlot timeSlot ) {
+        return timeSlotService.addTimeSlot(timeSlot);
+    }
+
+    @DeleteMapping("/timeslots/{id}")
+    public TimeSlot deleteTimeSlot_endpoint(@PathVariable Long id ) {
+        return timeSlotService.deleteTimeSlot(id) ;
+    }
+
+
+
 }

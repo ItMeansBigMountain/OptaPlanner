@@ -13,5 +13,5 @@ public interface TimeSlotService {
 
     List<TimeSlot> updateTimeSlot(TimeSlot ts);
 
-    List<TimeSlot> deleteTimeSlot(int id);
+    TimeSlot deleteTimeSlot(Long id);
 }

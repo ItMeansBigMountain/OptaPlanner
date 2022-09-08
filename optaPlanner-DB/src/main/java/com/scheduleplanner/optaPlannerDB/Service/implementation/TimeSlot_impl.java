@@ -35,7 +35,7 @@ public class TimeSlot_impl implements TimeSlotService {
     }
 
     @Override
-    public List<TimeSlot> deleteTimeSlot(int id) {
+    public TimeSlot deleteTimeSlot(Long id) {
         return null;
     }
 }

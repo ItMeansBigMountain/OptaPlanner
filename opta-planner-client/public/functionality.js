@@ -1,7 +1,9 @@
 var autoRefreshIntervalId = null;
 
+const base_url = "http://localhost:8080"
+
 function refreshTimeTable() {
-  $.getJSON("/timeTable", function (timeTable) {
+  $.getJSON(base_url + "/timeTable", function (timeTable) {
     refreshSolvingButtons(timeTable.solverStatus != null && timeTable.solverStatus !== "NOT_SOLVING");
     $("#score").text("Score: " + (timeTable.score == null ? "?" : timeTable.score));
 
@@ -150,7 +152,7 @@ function convertToId(str) {
 }
 
 function solve() {
-  $.post("/timeTable/solve", function () {
+  $.post(base_url + "/timeTable/solve", function () {
     refreshSolvingButtons(true);
   }).fail(function (xhr, ajaxOptions, thrownError) {
     showError("Start solving failed.", xhr);
@@ -175,7 +177,7 @@ function refreshSolvingButtons(solving) {
 }
 
 function stopSolving() {
-  $.post("/timeTable/stopSolving", function () {
+  $.post(base_url + "/timeTable/stopSolving", function () {
     refreshSolvingButtons(false);
     refreshTimeTable();
   }).fail(function (xhr, ajaxOptions, thrownError) {
@@ -185,7 +187,7 @@ function stopSolving() {
 
 function addLesson() {
   var subject = $("#lesson_subject").val().trim();
-  $.post("/lessons", JSON.stringify({
+  $.post(base_url + "/lessons", JSON.stringify({
     "subject": subject,
     "teacher": $("#lesson_teacher").val().trim(),
     "studentGroup": $("#lesson_studentGroup").val().trim()
@@ -198,7 +200,7 @@ function addLesson() {
 }
 
 function deleteLesson(lesson) {
-  $.delete("/lessons/" + lesson.id, function () {
+  $.delete(base_url + "/lessons/" + lesson.id, function () {
     refreshTimeTable();
   }).fail(function (xhr, ajaxOptions, thrownError) {
     showError("Deleting lesson (" + lesson.name + ") failed.", xhr);
@@ -206,7 +208,7 @@ function deleteLesson(lesson) {
 }
 
 function addTimeslot() {
-  $.post("/timeslots", JSON.stringify({
+  $.post(base_url + "/timeslots", JSON.stringify({
     "dayOfWeek": $("#timeslot_dayOfWeek").val().trim().toUpperCase(),
     "startTime": $("#timeslot_startTime").val().trim(),
     "endTime": $("#timeslot_endTime").val().trim()
@@ -219,7 +221,7 @@ function addTimeslot() {
 }
 
 function deleteTimeslot(timeslot) {
-  $.delete("/timeslots/" + timeslot.id, function () {
+  $.delete(base_url + "/timeslots/" + timeslot.id, function () {
     refreshTimeTable();
   }).fail(function (xhr, ajaxOptions, thrownError) {
     showError("Deleting timeslot (" + timeslot.name + ") failed.", xhr);
@@ -228,7 +230,7 @@ function deleteTimeslot(timeslot) {
 
 function addRoom() {
   var name = $("#room_name").val().trim();
-  $.post("/rooms", JSON.stringify({
+  $.post(base_url + "/rooms", JSON.stringify({
     "name": name
   }), function () {
     refreshTimeTable();
@@ -239,7 +241,7 @@ function addRoom() {
 }
 
 function deleteRoom(room) {
-  $.delete("/rooms/" + room.id, function () {
+  $.delete(base_url + "/rooms/" + room.id, function () {
     refreshTimeTable();
   }).fail(function (xhr, ajaxOptions, thrownError) {
     showError("Deleting room (" + room.name + ") failed.", xhr);

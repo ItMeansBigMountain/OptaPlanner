@@ -36,7 +36,7 @@ public class Room_impl implements RoomService {
     }
 
     @Override
-    public List<Room> deleteRoom(int id) {
+    public Room deleteRoom(Long id) {
         return null;
     }
 }

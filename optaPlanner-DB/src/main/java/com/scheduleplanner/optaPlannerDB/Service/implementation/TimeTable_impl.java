@@ -16,6 +16,11 @@ public class TimeTable_impl implements TimeTableService {
     }
 
     @Override
+    public TimeTable getLatestTimeTableById() {
+        return null;
+    }
+
+    @Override
     public TimeTable getTimeTableById(int requested_TimeTable_ID) {
         return null;
     }
@@ -31,7 +36,12 @@ public class TimeTable_impl implements TimeTableService {
     }
 
     @Override
-    public List<TimeTable> deleteTimeTable(int id) {
+    public TimeTable deleteTimeTable(Long id) {
         return null;
+    }
+
+    @Override
+    public void solve() {
+
     }
 }

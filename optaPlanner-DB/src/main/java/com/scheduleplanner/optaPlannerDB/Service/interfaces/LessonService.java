@@ -13,6 +13,6 @@ public interface LessonService {
 
     List<Lesson> updateLesson(Lesson l);
 
-    List<Lesson> deleteLesson(int id);
+    Lesson deleteLesson(Long id);
 
 }
