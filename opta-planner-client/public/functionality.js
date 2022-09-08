@@ -190,9 +190,19 @@ function addLesson() {
   $.post(base_url + "/lessons", JSON.stringify({
     "subject": subject,
     "teacher": $("#lesson_teacher").val().trim(),
-    "studentGroup": $("#lesson_studentGroup").val().trim()
+    "StudentGroup": $("#lesson_studentGroup").val().trim()
   }), function () {
     refreshTimeTable();
+
+    console.log(
+      {
+        "subject": subject,
+        "teacher": $("#lesson_teacher").val().trim(),
+        "StudentGroup": $("#lesson_studentGroup").val().trim()
+      }
+    );
+
+
   }).fail(function (xhr, ajaxOptions, thrownError) {
     showError("Adding lesson (" + subject + ") failed.", xhr);
   });
@@ -270,6 +280,7 @@ function showError(title, xhr) {
 }
 
 $(document).ready(function () {
+
   $.ajaxSetup({
     headers: {
       'Content-Type': 'application/json',
@@ -295,8 +306,6 @@ $(document).ready(function () {
   });
 
 
-
-
   $("#refreshButton").click(function () {
     refreshTimeTable();
   });
@@ -308,6 +317,7 @@ $(document).ready(function () {
   });
   $("#addLessonSubmitButton").click(function () {
     addLesson();
+
   });
   $("#addTimeslotSubmitButton").click(function () {
     addTimeslot();
