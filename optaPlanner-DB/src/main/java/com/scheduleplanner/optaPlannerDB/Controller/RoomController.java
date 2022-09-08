@@ -13,7 +13,7 @@ public class RoomController {
     private RoomService roomService;
 
     @PostMapping("/rooms")
-    public Room addRoom_endpoint(Room room) {
+    public Room addRoom_endpoint(@RequestBody Room room) {
         return this.roomService.addRoom(room);
     }
 

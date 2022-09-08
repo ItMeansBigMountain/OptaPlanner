@@ -15,7 +15,7 @@ public class LessonController {
 
 
     @PostMapping("/lessons")
-    public Lesson addLesson_endpoint(Lesson lesson) {
+    public Lesson addLesson_endpoint(@RequestBody Lesson lesson) {
         return this.lessonService.addLesson(lesson);
     }
 

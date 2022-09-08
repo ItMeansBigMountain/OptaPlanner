@@ -34,7 +34,7 @@ public class Lesson {
     public Lesson(String subject, String teacher, String studentGroup) {
         this.subject = subject;
         this.teacher = teacher;
-        StudentGroup = studentGroup;
+        this.StudentGroup = studentGroup;
     }
 
     public Long getId() {

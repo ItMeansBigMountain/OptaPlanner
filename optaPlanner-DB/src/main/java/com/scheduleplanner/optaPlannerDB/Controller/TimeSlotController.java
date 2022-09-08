@@ -16,7 +16,7 @@ public class TimeSlotController {
 
 
     @PostMapping("/timeslots")
-    public TimeSlot addTimeSlot_endpoint(TimeSlot timeSlot) {
+    public TimeSlot addTimeSlot_endpoint(@RequestBody TimeSlot timeSlot) {
         return this.timeSlotService.addTimeSlot(timeSlot);
     }
 

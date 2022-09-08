@@ -190,18 +190,9 @@ function addLesson() {
   $.post(base_url + "/lessons", JSON.stringify({
     "subject": subject,
     "teacher": $("#lesson_teacher").val().trim(),
-    "StudentGroup": $("#lesson_studentGroup").val().trim()
+    "studentgroup": $("#lesson_studentGroup").val().trim()
   }), function () {
     refreshTimeTable();
-
-    console.log(
-      {
-        "subject": subject,
-        "teacher": $("#lesson_teacher").val().trim(),
-        "StudentGroup": $("#lesson_studentGroup").val().trim()
-      }
-    );
-
 
   }).fail(function (xhr, ajaxOptions, thrownError) {
     showError("Adding lesson (" + subject + ") failed.", xhr);
