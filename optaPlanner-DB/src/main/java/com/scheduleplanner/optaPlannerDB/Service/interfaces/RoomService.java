@@ -11,7 +11,7 @@ public interface RoomService {
 
     Room addRoom(Room r);
 
-    List<Room> updateRoom(Room r);
+    Room updateRoom(Room r);
 
-    Room deleteRoom(Long id);
+    Boolean deleteRoom(Long id);
 }

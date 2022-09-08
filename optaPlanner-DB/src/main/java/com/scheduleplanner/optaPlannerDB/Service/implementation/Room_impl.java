@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class Room_impl implements RoomService {
@@ -17,26 +18,39 @@ public class Room_impl implements RoomService {
 
     @Override
     public List<Room> getAllRooms() {
-        return null;
+        return this.roomDao.findAll();
     }
 
     @Override
     public Room getRoomById(int requested_Room_ID) {
+        Optional<Room> r = this.roomDao.findById(requested_Room_ID);
+        if (r.isEmpty()) {
+            return null;
+        }
+        return r.get();
+    }
+
+    @Override
+    public Room addRoom(Room room) {
+        return this.roomDao.save(room);
+    }
+
+    @Override
+    public Room updateRoom(Room r) {
+        Optional<Room> q = this.roomDao.findById(Math.toIntExact(r.getId()));
+        if (q.isPresent()) {
+            this.roomDao.save(r);
+            return r;
+        }
         return null;
     }
 
     @Override
-    public Room addRoom(Room r) {
-        return null;
-    }
-
-    @Override
-    public List<Room> updateRoom(Room r) {
-        return null;
-    }
-
-    @Override
-    public Room deleteRoom(Long id) {
-        return null;
+    public Boolean deleteRoom(Long id) {
+        Optional<Room> q = this.roomDao.findById(Math.toIntExact(id));
+        if (q.isPresent()) {
+            this.roomDao.deleteById(Math.toIntExact(id));
+            return true;
+        } else return false;
     }
 }

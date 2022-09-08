@@ -16,12 +16,12 @@ public class LessonController {
 
     @PostMapping("/lessons")
     public Lesson addLesson_endpoint(Lesson lesson) {
-        return lessonService.addLesson(lesson);
+        return this.lessonService.addLesson(lesson);
     }
 
     @DeleteMapping("/lessons/{id}")
-    public Lesson deleteLesson_endpoint(@PathVariable Long id) {
-        return lessonService.deleteLesson(id);
+    public Boolean deleteLesson_endpoint(@PathVariable Long id) {
+        return this.lessonService.deleteLesson(id);
     }
 
 

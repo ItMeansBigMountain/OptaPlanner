@@ -12,16 +12,14 @@ public class RoomController {
     @Autowired
     private RoomService roomService;
 
-
     @PostMapping("/rooms")
     public Room addRoom_endpoint(Room room) {
-        return roomService.addRoom(room);
+        return this.roomService.addRoom(room);
     }
 
     @DeleteMapping("/rooms/{id}")
-    public Room deleteRoom_endpoint(@PathVariable Long id ) {
-        return roomService.deleteRoom(id) ;
+    public Boolean deleteRoom_endpoint(@PathVariable Long id) {
+        return this.roomService.deleteRoom(id);
     }
-
 
 }

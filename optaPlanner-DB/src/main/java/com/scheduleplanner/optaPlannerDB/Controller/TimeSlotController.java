@@ -16,15 +16,13 @@ public class TimeSlotController {
 
 
     @PostMapping("/timeslots")
-    public TimeSlot addTimeSlot_endpoint( TimeSlot timeSlot ) {
-        return timeSlotService.addTimeSlot(timeSlot);
+    public TimeSlot addTimeSlot_endpoint(TimeSlot timeSlot) {
+        return this.timeSlotService.addTimeSlot(timeSlot);
     }
 
     @DeleteMapping("/timeslots/{id}")
-    public TimeSlot deleteTimeSlot_endpoint(@PathVariable Long id ) {
-        return timeSlotService.deleteTimeSlot(id) ;
+    public Boolean deleteTimeSlot_endpoint(@PathVariable Long id) {
+        return this.timeSlotService.deleteTimeSlot(id);
     }
-
-
 
 }

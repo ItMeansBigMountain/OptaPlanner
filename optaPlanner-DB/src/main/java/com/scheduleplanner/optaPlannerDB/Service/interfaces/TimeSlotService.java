@@ -11,7 +11,7 @@ public interface TimeSlotService {
 
     TimeSlot addTimeSlot(TimeSlot ts);
 
-    List<TimeSlot> updateTimeSlot(TimeSlot ts);
+    TimeSlot updateTimeSlot(TimeSlot ts);
 
-    TimeSlot deleteTimeSlot(Long id);
+    Boolean deleteTimeSlot(Long id);
 }
