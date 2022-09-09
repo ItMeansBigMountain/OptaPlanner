@@ -18,7 +18,7 @@ public class RoomController {
     }
 
     @DeleteMapping("/rooms/{id}")
-    public Boolean deleteRoom_endpoint(@PathVariable Long id) {
+    public Boolean deleteRoom_endpoint(@PathVariable int id) {
         return this.roomService.deleteRoom(id);
     }
 

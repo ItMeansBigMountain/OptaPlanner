@@ -13,5 +13,5 @@ public interface TimeSlotService {
 
     TimeSlot updateTimeSlot(TimeSlot ts);
 
-    Boolean deleteTimeSlot(Long id);
+    Boolean deleteTimeSlot(int id);
 }

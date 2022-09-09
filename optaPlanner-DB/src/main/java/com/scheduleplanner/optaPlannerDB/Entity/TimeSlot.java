@@ -13,7 +13,7 @@ public class TimeSlot {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     private DayOfWeek dayOfWeek;
     private LocalTime startTime;
@@ -29,11 +29,11 @@ public class TimeSlot {
     }
 
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

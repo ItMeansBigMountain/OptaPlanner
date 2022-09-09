@@ -13,5 +13,5 @@ public interface RoomService {
 
     Room updateRoom(Room r);
 
-    Boolean deleteRoom(Long id);
+    Boolean deleteRoom(int id);
 }

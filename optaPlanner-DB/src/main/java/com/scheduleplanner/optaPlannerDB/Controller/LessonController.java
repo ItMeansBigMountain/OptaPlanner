@@ -20,7 +20,7 @@ public class LessonController {
     }
 
     @DeleteMapping("/lessons/{id}")
-    public Boolean deleteLesson_endpoint(@PathVariable Long id) {
+    public Boolean deleteLesson_endpoint(@PathVariable int id) {
         return this.lessonService.deleteLesson(id);
     }
 

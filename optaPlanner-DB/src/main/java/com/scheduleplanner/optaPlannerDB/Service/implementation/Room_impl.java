@@ -37,7 +37,7 @@ public class Room_impl implements RoomService {
 
     @Override
     public Room updateRoom(Room r) {
-        Optional<Room> q = this.roomDao.findById(Math.toIntExact(r.getId()));
+        Optional<Room> q = this.roomDao.findById( r.getId() );
         if (q.isPresent()) {
             this.roomDao.save(r);
             return r;
@@ -46,10 +46,10 @@ public class Room_impl implements RoomService {
     }
 
     @Override
-    public Boolean deleteRoom(Long id) {
-        Optional<Room> q = this.roomDao.findById(Math.toIntExact(id));
+    public Boolean deleteRoom(int id) {
+        Optional<Room> q = this.roomDao.findById( id );
         if (q.isPresent()) {
-            this.roomDao.deleteById(Math.toIntExact(id));
+            this.roomDao.deleteById( id );
             return true;
         } else return false;
     }

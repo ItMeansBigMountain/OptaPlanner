@@ -12,7 +12,7 @@ public class Lesson {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     private String subject;
     private String teacher;
@@ -34,14 +34,14 @@ public class Lesson {
     public Lesson(String subject, String teacher, String studentGroup) {
         this.subject = subject;
         this.teacher = teacher;
-        this.StudentGroup = studentGroup;
+        StudentGroup = studentGroup;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

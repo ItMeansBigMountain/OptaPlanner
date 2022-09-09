@@ -21,7 +21,7 @@ public class TimeSlotController {
     }
 
     @DeleteMapping("/timeslots/{id}")
-    public Boolean deleteTimeSlot_endpoint(@PathVariable Long id) {
+    public Boolean deleteTimeSlot_endpoint(@PathVariable int id) {
         return this.timeSlotService.deleteTimeSlot(id);
     }
 

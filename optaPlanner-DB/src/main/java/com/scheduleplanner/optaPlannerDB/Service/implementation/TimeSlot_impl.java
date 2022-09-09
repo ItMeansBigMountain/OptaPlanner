@@ -37,7 +37,7 @@ public class TimeSlot_impl implements TimeSlotService {
 
     @Override
     public TimeSlot updateTimeSlot(TimeSlot ts) {
-        Optional<TimeSlot> q = this.timeSlotDao.findById(Math.toIntExact(ts.getId()));
+        Optional<TimeSlot> q = this.timeSlotDao.findById( ts.getId() );
         if (q.isPresent()) {
             this.timeSlotDao.save(ts);
             return ts;
@@ -46,10 +46,10 @@ public class TimeSlot_impl implements TimeSlotService {
     }
 
     @Override
-    public Boolean deleteTimeSlot(Long id) {
-        Optional<TimeSlot> q = this.timeSlotDao.findById(Math.toIntExact(id));
+    public Boolean deleteTimeSlot(int id) {
+        Optional<TimeSlot> q = this.timeSlotDao.findById( id );
         if (q.isPresent()) {
-            this.timeSlotDao.deleteById(Math.toIntExact(id));
+            this.timeSlotDao.deleteById( id );
             return true;
         } else return false;
     }

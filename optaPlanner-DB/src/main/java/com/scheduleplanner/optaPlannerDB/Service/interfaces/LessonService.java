@@ -13,6 +13,6 @@ public interface LessonService {
 
     Lesson updateLesson(Lesson l);
 
-    Boolean deleteLesson(Long id);
+    Boolean deleteLesson(int id);
 
 }

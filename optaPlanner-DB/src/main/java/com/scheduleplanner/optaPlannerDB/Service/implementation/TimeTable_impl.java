@@ -21,10 +21,10 @@ import java.util.Optional;
 @Service
 public class TimeTable_impl implements TimeTableService {
 
-    private static final long SINGLETON_TIME_TABLE_ID = 1L;
+    private static final int SINGLETON_TIME_TABLE_ID = 1;
 
     @Inject
-    SolverManager<TimeTable, Long> solverManager;
+    SolverManager<TimeTable, Integer> solverManager;
 
     @Inject
     ScoreManager<TimeTable> scoreManager;
@@ -41,7 +41,7 @@ public class TimeTable_impl implements TimeTableService {
 
 
     @Override
-    public TimeTable getLatestTimeTableById() {
+    public TimeTable getTimeTable() {
         SolverStatus solverStatus = solverManager.getSolverStatus(SINGLETON_TIME_TABLE_ID);
         TimeTable timeTable = findById(SINGLETON_TIME_TABLE_ID);
         scoreManager.updateScore(timeTable);
@@ -57,22 +57,25 @@ public class TimeTable_impl implements TimeTableService {
 
 
     @Transactional
-    protected TimeTable findById(Long id) {
-        return new TimeTable(
+    protected TimeTable findById(int id) {
+
+        TimeTable tb = new TimeTable(
                 this.timeSlotDao.findAll(),
                 this.roomDao.findAll(),
                 this.lessonDao.findAll()
         );
+        return tb;
     }
 
     @Transactional
     protected void save(TimeTable timeTable) {
         for (Lesson lesson : timeTable.getLessonList()) {
-            Optional<Lesson> attachedLesson = this.lessonDao.findById(Math.toIntExact(lesson.getId()));
+            Optional<Lesson> attachedLesson = this.lessonDao.findById( lesson.getId() );
             if (attachedLesson.isPresent()) {
                 attachedLesson.get().setTimeSlot(lesson.getTimeSlot());
                 attachedLesson.get().setRoom(lesson.getRoom());
-                System.out.println(attachedLesson);
+                this.lessonDao.save(attachedLesson.get());
+                System.out.println(attachedLesson.get());
             }
         }
         System.out.println("-------------------");

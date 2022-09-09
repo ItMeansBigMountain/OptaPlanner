@@ -38,7 +38,7 @@ public class Lesson_impl implements LessonService {
 
     @Override
     public Lesson updateLesson(Lesson l) {
-        Optional<Lesson> q = this.lessonDao.findById(Math.toIntExact(l.getId()));
+        Optional<Lesson> q = this.lessonDao.findById( l.getId() );
         if (q.isPresent()) {
             this.lessonDao.save(l);
             return l;
@@ -47,10 +47,10 @@ public class Lesson_impl implements LessonService {
     }
 
     @Override
-    public Boolean deleteLesson(Long id) {
-        Optional<Lesson> q = this.lessonDao.findById(Math.toIntExact(id));
+    public Boolean deleteLesson(int id) {
+        Optional<Lesson> q = this.lessonDao.findById( id );
         if (q.isPresent()) {
-            this.lessonDao.deleteById(Math.toIntExact(id));
+            this.lessonDao.deleteById( id );
             return true;
         } else return false;
     }
